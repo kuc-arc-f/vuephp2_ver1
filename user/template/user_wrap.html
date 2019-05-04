@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">  
+    <title><?php  echo($mConfig['sys_title']); ?></title>
+    <link rel="icon" href="/favicon.png">
+    <link rel="stylesheet" href="./css/main.css?A5">
+    <link href="./css/main-sp.css?A3" rel="stylesheet" media="screen and (max-width: 480px)">
+    <link rel="stylesheet" href="./css/theme.css?A5">
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <!-- Vue -->
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+	<script type="text/javascript" src="<?php echo $mConfig['base_url']; ?>/user/js/axios.min.js"></script>    
+</head>
+<!--  nav-post  -->
+<div id="div_navigate_post">
+    <div id="div_head" class="cover">
+        <div class="container">
+        </div>
+    </div><!-- end_div_head -->
+</div>
+<body class="drawer drawer--left" style="background-color: #EEEEEE;">
+    <ul>
+        <li><a href="<?php echo $mConfig['base_url']; ?>/user">Home</a></li>
+        <li>About</li>
+        <li><a href="<?php echo $mConfig['base_url']; ?>/user/?fn=tasks">Tasks</a></li>
+    </ul>
+    <!-- T -->
+    <div class="container" style="margin-top:10px;">
+        <div class="row conte">
+            <div class="col-sm-3" style="padding: 10px;">
+            </div>
+            <div class="col-sm-9" style="padding: 10px;">
+                <div class="div_news_rows" style="width:100%; text-align: left;">
+                <?php include("{$mConfig['temp_dir']}/{$tpl['temp_html']}"); ?>
+                </div>
+            </div><!-- col_9 -->
+        </div><!-- row -->
+    </div>
+    <br />
+<br />
+<div id="id_foot" style="background-color: #757575 ; color:#FFF ; padding : 200px 40px;">
+    <a href="#"><p class="p_foot_str">About</p></a>
+    <p class="p_foot_str">Contact</p>
+    <p class="p_foot_str">運営組織</p>
+</div>
+ <script>
+ </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<h1>Tasks - index</h1>
+<a href="<?php echo($mConfig["base_url"]); ?>/user/?fn=tasks_create">[ create ]</a>
+<hr />
+<div id="app">
+    <div v-for="task in tasks" v-bind:key="task.id">
+        <p>ID : {{ task.id }}</p>
+        <h3>
+            <a v-bind:href="conv_url('/?fn=api_tasks_show') +task.id">{{ task.title }}</a>
+        </h3>
+        <p>
+            {{ task.content }}
+        </p>
+        <hr />
+    </div>
+</div>
+<!-- -->
+<script>
+var baseUrl = '<?php echo($mConfig["base_url"]); ?>/user';
+
+var app = new Vue({
+    el: '#app',
+    created() {
+        this.getTasks()
+    },    
+    data: {
+        tasks : [],
+    },
+    methods: {
+        getTasks() {
+            var url = this.conv_url('/?fn=api_tasks')
+            console.log(url)
+            axios.get(url)
+            .then(res =>  {
+                this.tasks = res.data
+                console.log(res.data.length )
+            })
+        },
+        conv_url(url) {
+            return baseUrl + url
+        }
+    }    
+});
+</script>
